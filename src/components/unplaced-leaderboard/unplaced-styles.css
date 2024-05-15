@@ -1,0 +1,45 @@
+.unplaced-container {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    background-color: #FFE8E8;
+    border: 1px solid #FFDEDE;
+    border-radius: 12px;
+    width: 600px;
+    height: 10em;
+    padding: 10px 0 10px 0;
+}
+
+.unplaced-item {
+    display: flex;
+    width: 90%;
+    height: 35%;
+    border: 1px solid #FFDEDE;
+    border-radius: 30px;
+    background-color: white;
+    margin: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.unplaced-container * {
+    font-size: 14;
+}
+
+.emp-name {
+    margin-left: 10px;
+}
+
+.right-side-container {
+    margin-right: 10px;
+    display: flex;
+    width: 120px;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fire-icon {
+    color: #FF9820;
+    font-size: 25px;
+}

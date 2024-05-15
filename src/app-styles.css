@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+
+.burger-container {
+    display: flex; 
+    position: absolute;
+    height: 35px;
+    /* top: 0;
+    right: 0; */
+    /* flex-direction: row;
+    justify-content: flex-end; */
+    /* padding-right: 15%; */
+    border: 1px solid red;
+}
+
+.burger {
+    font-size: 35px;
+    /* border: 1px solid blue; */
+    position: relative;
+    align-self: flex-end;
+    margin: 15px;
+}

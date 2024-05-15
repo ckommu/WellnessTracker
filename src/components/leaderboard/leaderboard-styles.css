@@ -1,0 +1,32 @@
+.leaderboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 475px;
+    margin: 20px;
+    /* border: 2px solid blue; */
+}
+
+.leaderboard-item {
+    width: 150px;
+    height: 300px;
+    /* border: 3px solid black; */
+    border-radius: 12px;
+    /* margin: 0.5em; */
+}
+
+.first-place {
+    background-color: #B0ECFF;
+    height: 270px;
+}
+
+.second-place {
+    background-color: #D0BAFF;
+    height: 240px;
+}
+
+.third-place {
+    background-color: #FFF9BE;
+    height: 200px
+}
+
