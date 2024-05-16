@@ -1,0 +1,21 @@
+.burgerContainer {
+    display: flex; 
+    position: absolute;
+    flex-direction: row;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    /* top: 0;
+    right: 0; */
+    align-items: center;
+
+    border: 2px solid red;
+}
+
+.burger {
+    font-size: 35px;
+    border: 1px solid blue;
+    position: relative; 
+    align-self: flex-start;
+
+}

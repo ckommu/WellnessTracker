@@ -1,11 +1,12 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+import { SignInButton, SignedIn, SignedOut, UserButton, SignIn } from '@clerk/clerk-react';
+import styles from './auth-styles.module.css';
 
 const Auth = () => {
 
     return (
-        <div>
+        <div style={{ margin: '15%' }}>
             <SignedOut>
-                <SignInButton />
+                <SignIn />
             </SignedOut>
             <SignedIn>
                 <UserButton />

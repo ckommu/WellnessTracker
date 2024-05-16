@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./leaderboard-styles.css";
+import styles from './leaderboard-styles.module.css';
 
 const Leaderboard = () => {
     return (
-        <div className="leaderboard-container">
-            <div className="leaderboard-item second-place"></div>
-            <div className="leaderboard-item first-place"></div>
-            <div className="leaderboard-item third-place"></div>
+        <div className={styles.leaderboardContainer}>
+            <div className={`${styles.secondPlace} ${styles.leaderboardItem}`}></div>
+            <div className={`${styles.firstPlace} ${styles.leaderboardItem}`}></div>
+            <div className={`${styles.thirdPlace} ${styles.leaderboardItem}`}></div>
         </div>
     );
 };

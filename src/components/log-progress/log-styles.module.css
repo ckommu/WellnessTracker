@@ -1,0 +1,17 @@
+.logContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #97E1D3;
+    border-radius: 12px;
+    border: 1px solid black;
+    width: 495px;
+    height: 55px;
+    margin: 20px;
+}
+
+.buttonText {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
