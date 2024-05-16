@@ -1,17 +1,15 @@
-import Leaderboard from './components/leaderboard/Leaderboard';
-import UnplacedBoard from './components/unplaced-leaderboard/UnplacedBoard';
-import './app-styles.css';
-import { MdMenu } from "react-icons/md";
-import Auth from './components/auth/Auth';
+import Home from './pages/home/Home';
+import AuthPage from './pages/auth-page/AuthPage';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
   return (
     <>
-      <Auth />
-        <MdMenu className='burger' />
-        <Leaderboard />
-        <UnplacedBoard />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>  
     </>
   );
 };
