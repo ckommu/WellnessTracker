@@ -1,0 +1,13 @@
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid black; */
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    margin-bottom: 2em;
+}
