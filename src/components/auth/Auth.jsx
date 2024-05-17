@@ -5,7 +5,7 @@ import styles from './auth-styles.module.css';
 const Auth = () => {
 
     return (
-        <div style={{ margin: '15%' }}>
+        <div style={{marginTop: '5%'}}>
             <SignedOut>
                 <div className={styles.authContainer}>
                     <img src={logo} className={styles.logo}/>

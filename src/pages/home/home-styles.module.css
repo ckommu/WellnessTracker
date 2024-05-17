@@ -1,20 +1,22 @@
-.home-wrapper {
+.homeRoot {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 800px;
+    justify-content: center;
     position: relative;
-    border: 2px solid green; /* For visual reference */
+    height: 100%;
+    width: 100%;
+
+    /* border: 11px solid pink; */
 }
 
-.home-main-container {
+.contentWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 800px;
-    border: 2px solid red; /* For visual reference */
-    margin-top: 20px; /* Add some margin between the burger and the container */
+
+    /* border: 5px solid orange; */
 }
