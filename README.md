@@ -1,1 +1,1 @@
-# SyngerG+
+# SynerG+
