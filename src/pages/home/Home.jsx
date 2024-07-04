@@ -4,6 +4,7 @@ import Leaderboard from '../../components/leaderboard/Leaderboard';
 import UnplacedBoard from '../../components/unplaced-leaderboard/UnplacedBoard';
 import LogProgressBtn from '../../components/log-progress/LogProgressBtn';
 import AuthPage from '../auth-page/AuthPage';
+import UserData from '../../components/user-data/UserData';
 import Burger from '../../components/burger/Burger';
 
 import { SignedIn, SignedOut } from '@clerk/clerk-react';
@@ -14,6 +15,7 @@ const Home = () => {
       <SignedIn>
         <Burger className={styles.burger}/>
         <div className={styles.contentWrapper}>
+          <UserData />
           <Leaderboard />
           <UnplacedBoard />
           <LogProgressBtn />

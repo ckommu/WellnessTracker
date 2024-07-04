@@ -7,7 +7,7 @@ async function main() {
 
     try {
         await client.connect();
-        const database = client.db("SynerGPlus");
+        const database = client.db("synergplus");
         const collections = await database.collections();
         collections.forEach((collection) => console.log(collection.collectionName));
     } catch (e) {
