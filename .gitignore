@@ -2,3 +2,6 @@
 config.env
 simple_server.cjs
 connect.cjs
+http.txt
+TEST.cjs
+TESTING/
