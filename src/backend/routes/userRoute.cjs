@@ -11,9 +11,7 @@ router.use(bodyParser.json());
 
 
 // GET REQUEST
-router.get(
-    '/', 
-    (req, res) => {
+router.get('/', (req, res) => {
         res.send('/users endpoint is working!!');
 });
 
