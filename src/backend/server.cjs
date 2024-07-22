@@ -1,7 +1,9 @@
 require('dotenv').config({ path: '../../.env' });
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute.cjs'); // userRoute = module.exports = router so userRoute = router
+const createChallengeRoute = require('./routes/createChallengeRoute.cjs');
 
 // MONGODB URL FROM .ENV
 const DB_URL = process.env.ATLAS_URI;
@@ -15,7 +17,7 @@ console.log('PORT from server.cjs: ', PORT)
 console.log('WEBHOOK SECRET from server.cjs: ', process.env.CLERK_WEBHOOK_SECRET);
 
 const app = express();
-app.use(express.json());
+app.use(cors());
 
 mongoose.connect(DB_URL, {
     dbName:'synergplus'
@@ -24,7 +26,8 @@ mongoose.connect(DB_URL, {
     .catch(err => console.error('MongoDB connection error: ', err));
 
 
-app.use('/users', userRoute); // app.use('endpoint URL', what you've named the file containing logic for /users)w
+app.use('/users', userRoute); // app.use('endpoint URL', what you've named the file containing logic for /users)
+app.use('/challenge', createChallengeRoute); 
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}!`);

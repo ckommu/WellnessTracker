@@ -1,11 +1,15 @@
 import React from 'react'
 import styles from './log-styles.module.css';
 
-const LogProgressBtn = () => {
+const LogProgressBtn = ({ onClick }) => {
+
   return (
-    <div className={styles.logContainer}>
+    <button 
+      className={styles.logContainer} 
+      onClick={onClick}
+    >
         <span className={styles.buttonText}>Log Your Progress!</span>
-    </div>
+    </button>
   )
 }
 

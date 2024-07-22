@@ -8,6 +8,12 @@
     width: 495px;
     height: 55px;
     margin: 20px;
+    cursor: pointer;
+}
+
+.logContainer:hover {
+    background-color: #85d0bf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .buttonText {
