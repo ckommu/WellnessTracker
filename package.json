@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@clerk/clerk-react": "^5.0.4",
     "@clerk/clerk-sdk-node": "^5.0.14",
+    "antd": "^5.19.3",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
