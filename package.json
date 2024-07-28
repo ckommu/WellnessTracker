@@ -21,6 +21,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.6.2",
     "mongoose": "^8.4.5",
+    "node-cron": "^3.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
     "react-datepicker": "^7.3.0",
