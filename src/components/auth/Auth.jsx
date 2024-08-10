@@ -1,4 +1,4 @@
-import { SignInButton, SignedIn, SignedOut, UserButton, SignIn } from '@clerk/clerk-react';
+import { SignInButton, SignedIn, SignedOut, UserButton, SignIn, UserProfile, SignOutButton } from '@clerk/clerk-react';
 import logo from '../../assets/logo.png';
 import styles from './auth-styles.module.css';
 
@@ -14,7 +14,8 @@ const Auth = () => {
                 
             </SignedOut>
             <SignedIn>
-                <UserButton />
+                <SignOutButton className={styles.signOutBtn}/>
+                <UserProfile />
             </SignedIn>
         </div>
     );

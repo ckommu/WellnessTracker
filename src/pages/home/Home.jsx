@@ -4,9 +4,7 @@ import Leaderboard from '../../components/leaderboard/Leaderboard';
 import UnplacedBoard from '../../components/unplaced-leaderboard/UnplacedBoard';
 import LogProgressBtn from '../../components/log-progress/LogProgressBtn';
 import AuthPage from '../auth-page/AuthPage';
-import Burger from '../../components/burger/Burger';
 import CalendarModal from '../../components/calendar-modal/CalendarModal';
-import Sidebar from '../../components/sidebar/Sidebar';
 import { useUser } from '@clerk/clerk-react';
 
 import { SignedIn, SignedOut } from '@clerk/clerk-react';
@@ -35,11 +33,6 @@ const Home = () => {
   
     fetchActiveChallenge();
   }, []);
-
-  const handleBurgerClick = () => {
-    console.log("Burger clicked!");
-    setShowSidebar(!showSidebar);
-  };
 
   const handleProgressClick = () => {
     setShowModal(true);
@@ -83,7 +76,6 @@ const Home = () => {
   return (
     <div className={styles.homeRoot}>
       <SignedIn>
-        <Burger onClick={handleBurgerClick} className={styles.burger} />
         <div className={styles.contentWrapper}>
           <Leaderboard />
           <UnplacedBoard />
@@ -96,7 +88,6 @@ const Home = () => {
           handleClose={handleProgressClose}
           handleLogProgress={handleLogProgress}
         />
-        <Sidebar open={showSidebar} onClose={() => setShowSidebar(false)} />
       </SignedIn>
       <SignedOut>
         <AuthPage />
