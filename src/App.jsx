@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/home/Home';
 import AuthPage from './pages/auth-page/AuthPage';
+import MyStats from './pages/my-stats/MyStats';
 import CreateChallenge from './pages/create-challenge/CreateChallenge';
 import AccessDenied from './pages/access denied/AccessDenied';
-import { useUser } from '@clerk/clerk-react';
-import { Spinner } from 'react-bootstrap';
+import NavigationBar from './components/navbar/NavigationBar';
+import { RedirectToSignIn, useUser } from '@clerk/clerk-react';
+
 
 function App() {
   const { user } = useUser();
@@ -19,22 +21,22 @@ function App() {
 
   if (!user || userRole === null) {
     return (
-      <div className="d-flex justify-content-center align-items-center" style={{ height: '300vh' }}>
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div>
+      <RedirectToSignIn />
     );
   }
 
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/auth" element={<AuthPage />} />
-      {console.log("userRole inside return: ", userRole)}
-      <Route path="/create-challenge" element={userRole ==='admin' ? <CreateChallenge /> : <AccessDenied />} />
-    </Routes>
+    <>
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<AuthPage />} />
+        {console.log("userRole inside return: ", userRole)}
+        <Route path="/create-challenge" element={userRole ==='admin' ? <CreateChallenge /> : <AccessDenied />} />
+        <Route path='/stats' element={<MyStats />}/>
+      </Routes>
+    </>
   );
 }
 

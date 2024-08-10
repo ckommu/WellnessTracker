@@ -5,7 +5,7 @@ const Logo = () => {
 
     return (
         <div className={styles.logoContainer}>
-            <img src={LogoImg} style={{ width: '50%' }} />
+            <img src={LogoImg} className={styles.logo} />
         </div>
     );
 };
