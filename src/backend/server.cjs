@@ -30,6 +30,15 @@ mongoose.connect(DB_URL, {
     .catch(err => console.error('MongoDB connection error: ', err));
 
 
+const path = require('path');
+
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, '../../dist')));
+    
+// Handle all other routes and return the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+});
 app.use('/users', userRoute); // app.use('endpoint URL', what you've named the file containing logic for /users)
 app.use('/challenge', createChallengeRoute); 
 app.use('/progress', logProgressRoute);
