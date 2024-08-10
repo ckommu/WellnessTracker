@@ -35,7 +35,7 @@ app.use('/challenge', createChallengeRoute);
 app.use('/progress', logProgressRoute);
 app.use('/challenges', activeChallengeRoute);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server listening on port ${PORT}!`);
 });
 
