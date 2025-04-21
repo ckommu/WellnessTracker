@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar-modal-styles.module.css';
 import { IoMdClose } from "react-icons/io";
 
-const CalendarModal = ({ show, handleClose, handleLogProgress }) => { //
+const CalendarModal = ({ show, handleClose, handleLogProgress, unit }) => { //
     const [selectedDate, setSelectedDate] = useState(null);
     const [progressValue, setProgressValue] = useState('');
 
@@ -16,9 +16,15 @@ const CalendarModal = ({ show, handleClose, handleLogProgress }) => { //
         e.preventDefault();
 
         if(selectedDate && progressValue) {
-            handleLogProgress({ date: selectedDate, value: progressValue });
+            const dateISO = new Date(selectedDate).toISOString();
+            const valueNum = Number(progressValue);
+
+            handleLogProgress({ 
+                date: dateISO, 
+                value: valueNum 
+            });
             setSelectedDate(null);
-            setProgressValue('');
+            setProgressValue(''); 
             handleClose();
         } else {
             alert('Please select a date and enter a progress value.');
@@ -40,7 +46,7 @@ const CalendarModal = ({ show, handleClose, handleLogProgress }) => { //
                 </div>
                 <div className={styles.modalText}>
                     <form onSubmit={handleSubmit} >
-                        <label>Enter progress made: 
+                        <label>Enter progress made {unit && `(${unit})`}: 
                             <input
                                 type='number'
                                 value={progressValue}

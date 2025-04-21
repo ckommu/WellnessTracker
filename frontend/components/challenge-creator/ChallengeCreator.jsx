@@ -21,7 +21,7 @@ const ChallengeCreator = () => {
         console.log('Payload:', payload); // Log payload data
 
         try {
-            const response = await fetch('http://localhost:5000/challenge', { // Update to localhost:5000
+            const response = await fetch('/api/challenge', { // Update to localhost:5000
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

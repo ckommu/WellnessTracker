@@ -5,9 +5,13 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Logo from '../logo/Logo';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './nav-bar-styles.module.css';
+import { useUser } from '@clerk/clerk-react';
 
 
 const NavigationBar = () => {
+  const { user } = useUser();
+  const userRole = user?.publicMetadata?.role;
+
     return (
         <>
           <Navbar bg="light" data-bs-theme="light" sticky='top' className={styles.navbarContainer}>
@@ -24,6 +28,12 @@ const NavigationBar = () => {
                 <LinkContainer to='/auth'>
                   <Nav.Link>Account</Nav.Link>
                 </LinkContainer>
+
+                {userRole === 'admin' && (
+                  <LinkContainer to='/create-challenge'>
+                    <Nav.Link>Create Challenge</Nav.Link>
+                  </LinkContainer>
+                )}
               </Nav>
             </Container>
           </Navbar>
