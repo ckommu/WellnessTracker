@@ -12,20 +12,20 @@ import { SignedIn, SignedOut } from '@clerk/clerk-react';
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
-  const [challengeId, setChallengeId] = useState(null);
+  const [challenge, setChallenge] = useState(null);
   const { user } = useUser();
 
   useEffect(() => {
     // Fetch the active challenge when the component mounts
     const fetchActiveChallenge = async () => {
       try {
-        const response = await fetch('http://localhost:5000/challenges/active');
+        const response = await fetch('/api/challenges/active');
         if (!response.ok) {
           throw new Error('Failed to fetch active challenge');
         }
         const data = await response.json();
         console.log('Fetched active challenge:', data);
-        setChallengeId(data._id); // Assuming the response contains the active challenge object
+        setChallenge(data); // Assuming the response contains the active challenge object
       } catch (error) {
         console.error('Error fetching active challenge:', error);
       }
@@ -46,12 +46,12 @@ const Home = () => {
   const handleLogProgress = (progressData) => {
     console.log('Logged progress: ', progressData);
 
-    fetch('http://localhost:5000/progress', { // port the SERVER Is listening on!!!
+    fetch('/api/progress', { // port the SERVER Is listening on!!!
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          userId: user.id,
-          challengeId: challengeId,
+          userId: user?.id,
+          challengeId: challenge?._id,
           date: progressData.date,
           value: progressData.value
         })
@@ -76,6 +76,13 @@ const Home = () => {
   return (
     <div className={styles.homeRoot}>
       <SignedIn>
+        {challenge && (
+          <div className={styles.challengeCard}>
+            <h2>{challenge.title}</h2>
+            <p>{challenge.description}</p>
+            <p>{new Date(challenge.startDate).toLocaleDateString()} - {new Date(challenge.endDate).toLocaleDateString()}</p>
+          </div>
+        )}
         <div className={styles.contentWrapper}>
           <Leaderboard />
           <UnplacedBoard />
@@ -87,6 +94,7 @@ const Home = () => {
           show={showModal} 
           handleClose={handleProgressClose}
           handleLogProgress={handleLogProgress}
+          unit={challenge?.unit}
         />
       </SignedIn>
       <SignedOut>
