@@ -13,6 +13,11 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [challenge, setChallenge] = useState(null);
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  
+  const sorted = [...leaderboardData].sort((a, b) => (b.value || 0) - (a.value || 0));
+  const top3 = sorted.slice(0, 3);
+  const others = sorted.slice(3);
   const { user } = useUser();
 
   useEffect(() => {
@@ -32,6 +37,21 @@ const Home = () => {
     };
   
     fetchActiveChallenge();
+  }, []);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const res = await fetch('/api/progress/leaderboard');
+        const data = await res.json();
+        const sorted = [...data].sort((a, b) => (b.value || 0) - (a.value || 0));
+        setLeaderboardData(sorted);
+      } catch (err) {
+        console.error("Error fetching leaderboard: ", err);
+      }
+    };
+
+    fetchLeaderboard();
   }, []);
 
   const handleProgressClick = () => {
@@ -73,6 +93,8 @@ const Home = () => {
     });
 };
 
+
+
   return (
     <div className={styles.homeRoot}>
       <SignedIn>
@@ -84,8 +106,8 @@ const Home = () => {
           </div>
         )}
         <div className={styles.contentWrapper}>
-          <Leaderboard />
-          <UnplacedBoard />
+          <Leaderboard top3={top3}/>
+          <UnplacedBoard others={others}/>
           <LogProgressBtn 
             onClick={handleProgressClick}  
           />

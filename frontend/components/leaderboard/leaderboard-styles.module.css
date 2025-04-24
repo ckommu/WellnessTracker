@@ -1,73 +1,63 @@
 .leaderboardContainer {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 475px;
-    margin: 100px 0 20px 0;
-    /* border: 2px solid blue; */
-}
-
-.leaderboardItem {
-    display: flex;
-    width: 150px;
-    border-radius: 12px;
     justify-content: center;
     align-items: flex-end;
-    font-weight: 400;
-    color: #363539;
-}
-
-.firstPlace {
+    gap: 2rem;
+    margin: 4rem auto;
+    width: fit-content;
+  }
+  
+  .leaderboardItem {
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100px;
+  }
+  
+  .bar {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #1d1d1f;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .firstPlace {
+    height: 220px;
     background-color: #9EE8FF;
-    height: 270px;
-}
-
-.firstText {
-    background-color: #B0ECFF;
-    border: 2px solid #C5F1FF;
-    border-radius: 8px;
-    width: 5em; 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-.secondPlace {
-    display: flex;
-    justify-content: center;
+  }
+  
+  .secondPlace {
+    height: 180px;
     background-color: #BDA2F5;
-    height: 240px;
-}
-
-.secondText {
-    background-color: #D0BAFF;
-    border: 2px solid #DDCCFF;
-    border-radius: 8px;
-    width: 5em;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-.thirdPlace {
-    display: flex;
-    justify-content: center;
+  }
+  
+  .thirdPlace {
+    height: 140px;
     background-color: #FFF597;
-    height: 200px
-}
-
-.thirdText {
-    background-color: #FFF9BE;
-    border: 2px solid #FFFDE9;
-    border-radius: 8px;
-    width: 5em;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
+  }
+  
+  .rankLabel {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #5a5a5a;
+  }
+  
+  .name {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
+  .value {
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+  }
+  
