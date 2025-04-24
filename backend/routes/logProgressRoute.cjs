@@ -59,4 +59,39 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/leaderboard', async (req, res) => {
+    try {
+      const Challenge = require('../models/challengeModel.cjs');
+      const Progress = require('../models/progressModel.cjs');
+      const User = require('../models/userModel.cjs');
+  
+      // Step 1: Get the active challenge
+      const activeChallenge = await Challenge.findOne({ active: true });
+      if (!activeChallenge) {
+        return res.status(404).json({ message: 'No active challenge found.' });
+      }
+  
+      // Step 2: Get all users
+      const users = await User.find();
+  
+      // Step 3: Get all progress logs for this challenge
+      const logs = await Progress.find({ challengeId: activeChallenge._id });
+  
+      // Step 4: Merge users + logs
+      const leaderboard = users.map(user => {
+        const entry = logs.find(log => log.userId === user.clerkUserId);
+        return {
+          name: `${user.firstName} ${user.lastName}`,
+          value: entry?.value || null,
+          unit: entry?.units || '',
+        };
+      });
+  
+      res.json(leaderboard);
+    } catch (err) {
+      console.error('Error in leaderboard route:', err);
+      res.status(500).json({ message: 'Internal server error', error: err.message });
+    }
+  });  
+
 module.exports = router;
