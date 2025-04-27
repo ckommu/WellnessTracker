@@ -1,0 +1,59 @@
+.statsContainer {
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    border: 2px solid red;
+}
+  
+.section {
+    margin-bottom: 2rem;
+}
+  
+.logList {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.progressBarContainer {
+    margin-top: 1rem;
+}
+  
+.progressBarBackground {
+    width: 100%;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+  
+.progressBarFill {
+    height: 100%;
+    background-color: #5BC246;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+  
+.progressText {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.25rem;
+    color: #333;
+}
+
+.loggedDay {
+    background: #5BC246 !important;
+    color: white !important;
+    border-radius: 50%;
+}
+  
+.react-calendar__tile {
+    padding: 0.5rem 0.25rem !important;
+}
+  
+.react-calendar__tile--now {
+    background: #ffd700 !important; /* highlight today */
+    border-radius: 50%;
+}
+  
+  

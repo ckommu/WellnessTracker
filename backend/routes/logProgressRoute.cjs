@@ -94,4 +94,35 @@ router.get('/leaderboard', async (req, res) => {
     }
   });  
 
+  router.get('/user/:userId/active', async (req, res) => {
+    try {
+      const { userId } = req.params;
+
+      const activeChallenge = await Challenge.findOne({ active: true });
+      if(!activeChallenge) {
+        return res.status(404).json({ message: 'No active challenge found.'});
+      }
+
+      const progressLogs = await Progress.find({
+        userId,
+        challengeId: activeChallenge._id,
+      }).sort({ date: 1 });
+
+      const total = progressLogs.reduce((acc, log) => acc + (log.value || 0), 0);
+
+      res.json({
+        challengeTitle: activeChallenge.title,
+        challengeUnits: activeChallenge.units,
+        totalLogged: total,
+        logs: progressLogs.map(log => ({
+          date: log.date,
+          value: log.value
+        }))
+      });
+    } catch (err) {
+      console.error('Error finding user active progress:', err);
+      res.status(500).json({ message: 'Server error', error: err.message });
+    }
+  });
+
 module.exports = router;
