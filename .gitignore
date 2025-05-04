@@ -6,3 +6,4 @@ http.txt
 TEST.cjs
 TESTING/
 dist/
+node_modules
